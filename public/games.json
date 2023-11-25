@@ -1,0 +1,35 @@
+[
+    {
+      "game": "Assassin's Creed Odyssey",
+      "game_img": "assassins_creed_odyssey.jpg",
+      "genre": "Action",
+      "details": "Embark on an epic journey in ancient Greece as a skilled assassin. Navigate political intrigue, forge alliances, and engage in intense combat. Choose your path and shape your destiny in this open-world action-adventure.",
+      "price": 49.99,
+      "rating": 4.7
+    },
+    {
+      "game": "The Legend of Zelda: Breath of the Wild",
+      "game_img": "zelda_breath_of_the_wild.jpg",
+      "genre": "Adventure",
+      "details": "Embark on a quest to save the kingdom of Hyrule from the evil Calamity Ganon. Explore a vast open world, solve puzzles, battle formidable foes, and discover the secrets of the Sheikah Slate in this critically acclaimed action-adventure game.",
+      "price": 59.99,
+      "rating": 4.8
+    },
+    {
+      "game": "Resident Evil Village",
+      "game_img": "resident_evil_village.jpg",
+      "genre": "Horror",
+      "details": "Experience survival horror at its best in Resident Evil Village. Set in a mysterious village, face grotesque creatures, solve puzzles, and uncover the dark secrets lurking within. Are you ready to confront the horrors that await?",
+      "price": 54.99,
+      "rating": 4.5
+    },
+    {
+      "game": "The Witcher 3: Wild Hunt",
+      "game_img": "witcher_3_wild_hunt.jpg",
+      "genre": "RPG",
+      "details": "Immerse yourself in the epic world of The Witcher 3: Wild Hunt. Follow Geralt of Rivia, a monster hunter for hire, as he searches for his adopted daughter. Engage in morally ambiguous choices, explore a vast open world, and experience a gripping narrative.",
+      "price": 39.99,
+      "rating": 4.9
+    }
+  ]
+  

@@ -18,7 +18,7 @@ const Navbar = () => {
                         <NavLink>Subscription </NavLink>
                         <NavLink>Premium Articles</NavLink>
                         <NavLink>My Articles</NavLink>
-                        <NavLink>Add Article</NavLink>
+                        <NavLink to='/addarticle'>Add Article</NavLink>
                         <NavLink to='/admin/dashboard'>Dashboard</NavLink>
                         
                        {user ? <div className='flex items-center gap-2'> <Link>

@@ -3,13 +3,14 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
-import { colourOptions } from '../data';
+import usePublishers from '../../Hooks/usePublishers';
 
 const animatedComponents = makeAnimated();
 const AddArticle = () => {
     
     const {user} = useContext(AuthContext);
-
+    const publishers = usePublishers();
+    console.log(publishers);
     const handleAddArticle = e =>{
       e.preventDefault();
       const form = e.target;
@@ -70,7 +71,7 @@ const AddArticle = () => {
       closeMenuOnSelect={false}
       components={animatedComponents}
       isMulti
-      options={colourOptions}
+      
     />
     </div>
     

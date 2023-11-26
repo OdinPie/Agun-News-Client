@@ -5,47 +5,51 @@ import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 import usePublishers from '../../Hooks/usePublishers';
 import { tagOptions } from './tagOptions';
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
 const animatedComponents = makeAnimated();
 const AddArticle = () => {
     
     const {user} = useContext(AuthContext);
     const publishers = usePublishers();
-
+    const axiosPublic = useAxiosPublic();
     const handleAddArticle = e =>{
       e.preventDefault();
       const form = e.target;
-      const sname = form.sname.value;
-      const spic = form.spic.value;
-      const slocation = form.slocation.value;
-      const price = form.price.value;
-      const detail = form.detail.value;
-      const displayName = user.displayName;
-      const email = user.email;
-      const photoURL = user.photoURL;
+      const title = form.title.value;
+      const articleCover = form.articleCover.value;
+      const publisher = form.publisher.value;
+      const rtags = form.tags.value;
+      const tags = rtags.split(' ');
+      const author = user?.displayName;
+      const authorEmail = user?.email;
+      const authorPhoto = user?.photoURL;
+      const status = 'pending';
+      const isPremium = 'no';
+      const articleInfo = {
+        title,
+        articleCover,
+        publisher,
+        tags,
+        author,
+        authorEmail,
+        authorPhoto,
+        status,
+        isPremium
+      }
+      console.log(articleInfo);
 
-      const serviceInfo = {
-        sname,
-        spic,
-        slocation,
-        price,
-        detail,
-        displayName,
-        email,
-        photoURL}
+      axiosPublic.post('/articles', articleInfo)
+      .then(res=>{
+        if(res.data.insertedId){
+          Swal.fire({
+            title: "Success!",
+            text: "Article Added!",
+            icon: "success"
+          });
+          form.reset(); 
+        }
+      })
         
-
-        //axios post api
-        // axios.post('https://bdbn-server.vercel.app/services',serviceInfo,{withCredentials: true} )
-        // .then(res=>{
-        //   if(res.data.insertedId){
-        //     Swal.fire({
-        //       title: "Good job!",
-        //       text: "Service has been added!",
-        //       icon: "success"
-        //     });
-        //   }
-        // })
-        // form.reset();
 
         
     }
@@ -57,15 +61,15 @@ const AddArticle = () => {
     <div className="grid grid-cols-2 gap-5">
     <div className="form-control">
       
-      <input type="text" name="title" placeholder="Article Title" className="input input-bordered" required />
+      <input type="text" name="title" placeholder="Article Title" className="input input-bordered text-black " required />
     </div>
     <div className="form-control">
       
-      <input type="text" name="articleCover"  placeholder="Cover Image URL" className="input input-bordered" required />
+      <input type="text" name="articleCover"  placeholder="Cover Image URL" className="input input-bordered text-black" required />
       </div>
       <div className="form-control">
       
-      <select className="select select-error w-full text-black">
+      <select className="select select-error w-full text-black" name='publisher' required>
         <option disabled selected>Select Publishers</option>
         {
           publishers && publishers.map(pub=> <option>{pub.publication}</option>)
@@ -80,6 +84,9 @@ const AddArticle = () => {
       options= {tagOptions} 
       className='text-black'
       placeholder='Select Tags'
+      name='tags'
+      delimiter=' '
+      required
     />
     </div>
     
@@ -87,7 +94,7 @@ const AddArticle = () => {
     
     <div className="form-control">
      
-      <textarea name="detail" className="textarea textarea-secondary" placeholder="Article Description" required></textarea>
+      <textarea name="detail" className="textarea textarea-secondary text-black" placeholder="Article Description" required></textarea>
     </div>
     <div className="form-control mt-6">
       <button  className="btn text-black">Add Article</button>

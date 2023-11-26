@@ -16,7 +16,7 @@ const Dashboard = () => {
                 <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                 {/* Sidebar content here */}
                 <Link><li><a>All Users</a></li></Link>
-                <Link><li><a>All Articles</a></li></Link>
+                <Link to='/admin/allarticles'><li><a>All Articles</a></li></Link>
                 <Link to='/admin/addpublisher'><li><a>Add Publisher</a></li></Link>
                 
                 </ul>

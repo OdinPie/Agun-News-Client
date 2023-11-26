@@ -6,6 +6,7 @@ import makeAnimated from 'react-select/animated';
 import usePublishers from '../../Hooks/usePublishers';
 import { tagOptions } from './tagOptions';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import { getTime } from './getTime';
 const animatedComponents = makeAnimated();
 const AddArticle = () => {
     
@@ -25,6 +26,7 @@ const AddArticle = () => {
       const authorPhoto = user?.photoURL;
       const status = 'pending';
       const isPremium = 'no';
+      const postedDate = getTime();
       const articleInfo = {
         title,
         articleCover,
@@ -34,7 +36,8 @@ const AddArticle = () => {
         authorEmail,
         authorPhoto,
         status,
-        isPremium
+        isPremium,
+        postedDate
       }
       console.log(articleInfo);
 

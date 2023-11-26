@@ -10,7 +10,7 @@ const AddPublisher = () => {
         const publication = form.publication.value;
         const logo = form.logo.value;
         const publicationInfo = { publication,logo };
-        axiosPublic.post('/addpublisher', publicationInfo)
+        axiosPublic.post('/publishers', publicationInfo)
         .then(res=>{
             if(res.data.insertedId){
                 Swal.fire({

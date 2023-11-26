@@ -11,6 +11,21 @@ const AddArticle = () => {
     const {user} = useContext(AuthContext);
     const publishers = usePublishers();
     console.log(publishers);
+
+    const tags = [
+        'breakingNews',
+        'politics',
+        'crime',
+        'worldNews',
+        'business',
+        'technology',
+        'health',
+        'science',
+        'entertainment',
+        'sports',
+        'environment'
+    ]
+
     const handleAddArticle = e =>{
       e.preventDefault();
       const form = e.target;
@@ -46,6 +61,8 @@ const AddArticle = () => {
         //   }
         // })
         // form.reset();
+
+        
     }
     return (
         <div className="font-poppins" >
@@ -71,7 +88,8 @@ const AddArticle = () => {
       closeMenuOnSelect={false}
       components={animatedComponents}
       isMulti
-      
+      options= {tags} 
+  
     />
     </div>
     

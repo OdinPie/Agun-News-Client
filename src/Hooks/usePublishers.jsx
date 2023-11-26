@@ -7,7 +7,7 @@ const usePublishers = () =>{
     const [publishers, setPublishers] = useState([]);
     
         useEffect(()=>{
-            axiosPublic.get('/addpublisher')
+            axiosPublic.get('/publishers')
             .then(res=>setPublishers(res.data))    
         },[axiosPublic])
        

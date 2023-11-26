@@ -10,7 +10,6 @@ const AddArticle = () => {
     
     const {user} = useContext(AuthContext);
     const publishers = usePublishers();
-    console.log(publishers);
 
     const handleAddArticle = e =>{
       e.preventDefault();
@@ -54,7 +53,7 @@ const AddArticle = () => {
         <div className="font-poppins" >
         
   <form onSubmit={handleAddArticle} className="card-body ">
-    <h2 className="text-4xl font-bold font-play mt-32 text-center">Add an Article!</h2>
+    <h2 className="text-4xl font-bold font-play mt-32 text-center">Add an Article!</h2><br />
     <div className="grid grid-cols-2 gap-5">
     <div className="form-control">
       
@@ -66,7 +65,12 @@ const AddArticle = () => {
       </div>
       <div className="form-control">
       
-      <input type="text" name="type"  placeholder="Type of Product" className="input input-bordered" required />
+      <select className="select select-error w-full text-black">
+        <option disabled selected>Select Publishers</option>
+        {
+          publishers && publishers.map(pub=> <option>{pub.publication}</option>)
+        }
+      </select>
     </div>
     <div className="form-control">
     <Select

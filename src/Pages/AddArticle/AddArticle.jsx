@@ -4,27 +4,13 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 import usePublishers from '../../Hooks/usePublishers';
-
+import { tagOptions } from './tagOptions';
 const animatedComponents = makeAnimated();
 const AddArticle = () => {
     
     const {user} = useContext(AuthContext);
     const publishers = usePublishers();
     console.log(publishers);
-
-    const tags = [
-        'breakingNews',
-        'politics',
-        'crime',
-        'worldNews',
-        'business',
-        'technology',
-        'health',
-        'science',
-        'entertainment',
-        'sports',
-        'environment'
-    ]
 
     const handleAddArticle = e =>{
       e.preventDefault();
@@ -69,7 +55,6 @@ const AddArticle = () => {
         
   <form onSubmit={handleAddArticle} className="card-body ">
     <h2 className="text-4xl font-bold font-play mt-32 text-center">Add an Article!</h2>
-    {/* <p className="font-semibold">Want to contribute to the beauty community by giving your valuable review? Well wait no further! <br /> Just fillup this easy form and you are good to go!</p> */}
     <div className="grid grid-cols-2 gap-5">
     <div className="form-control">
       
@@ -88,17 +73,12 @@ const AddArticle = () => {
       closeMenuOnSelect={false}
       components={animatedComponents}
       isMulti
-      options= {tags} 
-  
+      options= {tagOptions} 
+      className='text-black'
+      placeholder='Select Tags'
     />
     </div>
     
-    <div className="form-control">
-      <label className="label">
-        <span className="label-text">Photo URL</span>
-      </label>
-      <input type="text" name="photoURL"  placeholder="Enter photo URL" className="input input-bordered" required />
-    </div>
     </div>
     
     <div className="form-control">

@@ -6,7 +6,7 @@ const Navbar = () => {
     const {user, logoutUser} = useContext(AuthContext);
     return (
         <div>
-            <div className="navbar bg-black p-5 border-b-2 border-white rounded-none fixed top-0 z-20">
+            <div className="navbar bg-black p-5 border-b-2 border-red-700 rounded-none fixed top-0 z-20">
                 <div className="flex-1">
                     <img className='w-16 h-2w-16' src="https://i.ibb.co/BCmnXW9/kisspng-vector-graphics-clip-art-image-flame-fire-cropped-logo-png-www-kaminipechi24-ru-5bfe5ea4a6ba.png" alt="" />
                     <a href='/' className="btn btn-ghost text-2xl font-play">AGUN NEWS</a>
@@ -29,11 +29,11 @@ const Navbar = () => {
                         </label>
                         </Link>
 
-                        <button onClick={logoutUser} className='outline outline-white p-3'>Logout</button>
+                        <button onClick={logoutUser} className='btnPrimary'>Logout</button>
                         </div> :
                         <div className='flex gap-5'>
-                        <Link to='/login'><button onClick={logoutUser} className='outline outline-white p-3'>Login</button></Link>
-                        <Link to='/register'><button onClick={logoutUser} className='outline outline-red-700 p-3'>Register</button></Link>
+                        <Link to='/login'><button onClick={logoutUser} className='btnPrimary'>Login</button></Link>
+                        <Link to='/register'><button onClick={logoutUser} className='outline outline-red-700 btnPrimary'>Register</button></Link>
                         </div>
                        }
                        
@@ -62,8 +62,8 @@ const Navbar = () => {
                         <button onClick={logoutUser} className='outline outline-white p-3'>Logout</button>
                         </div> : 
                         <div className='flex gap-5'>
-                        <Link to='/login'><button onClick={logoutUser} className='outline outline-white p-3'>Login</button></Link>
-                        <Link to='/register'><button onClick={logoutUser} className='outline outline-red-700 p-3'>Register</button></Link>
+                        <Link to='/login'><button onClick={logoutUser} className='btnPrimary'>Login</button></Link>
+                        <Link to='/register'><button onClick={logoutUser} className='outline outline-red-700 btnPrimary'>Register</button></Link>
                         </div>
                        }
     

@@ -19,6 +19,7 @@ const AddArticle = () => {
       const title = form.title.value;
       const articleCover = form.articleCover.value;
       const publisher = form.publisher.value;
+      const detail = form.detail.value;
       const rtags = form.tags.value;
       const tags = rtags.split(' ');
       const author = user?.displayName;
@@ -31,6 +32,7 @@ const AddArticle = () => {
         title,
         articleCover,
         publisher,
+        detail,
         tags,
         author,
         authorEmail,
@@ -39,7 +41,7 @@ const AddArticle = () => {
         isPremium,
         postedDate
       }
-      console.log(articleInfo);
+      // console.log(articleInfo);
 
       axiosPublic.post('/articles', articleInfo)
       .then(res=>{

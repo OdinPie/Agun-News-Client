@@ -16,7 +16,7 @@ body{
     padding: 10px;
     /* background: rgba(255, 255, 255, 0.551);
     border: white solid 1px; */
-    background: linear-gradient(to right, transparent 50%, rgb(11, 119, 131) 50%);
+    background: linear-gradient(to right, transparent 50%, rgb(182, 14, 14) 50%);
     background-position: left bottom;
     background-size: 200% 100%;
     border: 1px solid white;

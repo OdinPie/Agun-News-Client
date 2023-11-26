@@ -71,8 +71,8 @@ const Navbar = () => {
                         <li><NavLink>All Articles</NavLink></li>
                         <li><NavLink>Subscription </NavLink></li>
                         <li><NavLink>Premium Articles</NavLink></li>
-                        <li><NavLink>Add Article</NavLink></li>
-                        <li><NavLink>Dashboard</NavLink></li>  
+                        <li><NavLink to='/addarticle'>Add Article</NavLink></li>
+                        <li><NavLink to='/admin/dashboard'>Dashboard</NavLink></li>  
                         </ul>
                     </div>
                     </div>

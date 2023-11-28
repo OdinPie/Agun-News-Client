@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import useAxiosPublic from "../../../Hooks/useArticles"
 import useArticles from '../../../Hooks/useArticles';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
@@ -22,6 +22,11 @@ const ArticleRow = ({ article }) => {
         const [,refetch] = useArticles();
         const [disableButton, setdisableButton] = useState(false);
         
+        useEffect(()=>{
+            if(status=='approved' || status=='declined'){
+                setdisableButton(true);
+            }
+        },[status])
         const handleApprove = () =>{
             const updated = {
                 status: 'approved'

@@ -84,7 +84,7 @@ const ArticleRow = ({ article }) => {
                     <form onSubmit={handleDelete} method="dialog">
                     <textarea name='reason' className="textarea textarea-error w-full" placeholder=""></textarea>
 
-                        {/* if there is a button in form, it will close the modal */}
+                        
 
                         <button className="btn modal-open">Decline</button>
                     </form>

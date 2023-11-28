@@ -7,6 +7,7 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import AddPublisher from "../Pages/Dashboard/AddPublisher/AddPublisher";
 import AddArticle from "../Pages/AddArticle/AddArticle";
 import AllArticles from "../Pages/Dashboard/AllArticles/AllArticles";
+import AllArticlesGeneral from "../Pages/AllArticlesGeneral/AllArticlesGeneral";
 
 
 export const route = createBrowserRouter([
@@ -41,6 +42,10 @@ export const route = createBrowserRouter([
             {
                 path: '/admin/allarticles',
                 element: <AllArticles></AllArticles>
+            },
+            {
+                path: '/allarticles',
+                element: <AllArticlesGeneral></AllArticlesGeneral>
             }
         ]
     }

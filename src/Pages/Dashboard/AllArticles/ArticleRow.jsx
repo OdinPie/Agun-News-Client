@@ -79,7 +79,7 @@ const ArticleRow = ({ article }) => {
             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box text-black">
                     
-                    {/* <div className="modal-action"> */}
+                    
                     <h3 className="font-bold text-lg">State Reason</h3><br />
                     <form onSubmit={handleDelete} method="dialog">
                     <textarea name='reason' className="textarea textarea-error w-full" placeholder=""></textarea>

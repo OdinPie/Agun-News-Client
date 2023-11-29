@@ -16,7 +16,8 @@ const ArticleDetail = () => {
         authorPhoto,
         status,
         isPremium,
-        postedDate } = article[0];
+        postedDate,
+        viewCount } = article[0];
         
     return (
         <div>
@@ -38,6 +39,7 @@ const ArticleDetail = () => {
                         <h1>Written by : {author}</h1>
                         <h1>{authorEmail}</h1>
                         <h1>Posted On: {postedDate}</h1>
+                        <h1>View: {viewCount}</h1>
                     </div>
                         <h1>Publisher: {publisher}</h1>
                 </div><br /><br />

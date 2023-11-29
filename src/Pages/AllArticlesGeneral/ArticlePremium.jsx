@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
 
 const ArticleGeneral = ({article}) => {
     const { 
@@ -14,9 +15,26 @@ const ArticleGeneral = ({article}) => {
         authorPhoto,
         status,
         isPremium,
-        postedDate } = article;
+        postedDate,
+        viewCount } = article;
 
         const navigate = useNavigate();
+        const [view, setView] = useState(viewCount);
+        const axiosPublic = useAxiosPublic();
+        const handleDetail = () =>{
+            var count = viewCount+1;
+            setView(count);
+            
+            const updatedDoc = {
+                viewCount: view+1
+            }
+            console.log(updatedDoc);
+            axiosPublic.patch(`/updatecount/${_id}`,updatedDoc)
+            .then(res=>{
+                console.log(res.data);
+            })
+            navigate(`/allarticles/articledetail/${_id}`);
+        }
     return (
         <div>
             <div className="card card-compact relative w-96 rounded-none bg-transparent shadow-xl hover:shadow-purple-700 outline outline-1 outline-purple-700">
@@ -27,7 +45,7 @@ const ArticleGeneral = ({article}) => {
                     <p className='underline underline-offset-8'>{publisher}</p><br />
                     <p>{detail.length > 100 ? detail.slice(0,100) : detail}....</p>
                     <div className="card-actions justify-end">
-                    <button onClick={()=>{navigate(`/allarticles/articledetail/${_id}`)}} className="btnPremium w-full">Details</button>
+                    <button onClick={handleDetail} className="btnPremium w-full">Details</button>
                     </div>
                 </div>
             </div>

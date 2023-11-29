@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 // import useAxiosPublic from "../../../Hooks/useArticles"
 import useArticles from '../../../Hooks/useArticles';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';

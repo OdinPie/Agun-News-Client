@@ -17,13 +17,18 @@ const ArticleDetail = () => {
         status,
         isPremium,
         postedDate } = article[0];
-
+        
     return (
         <div>
             <h1 className='text-4xl font-bold font-play pt-40 text-center text-white'>{title}</h1><br /><br />
-            <img src={articleCover} alt="" />
-            <div>
-                <div className='flex justify-between'>
+            <h1 className='text-2xl text-center flex justify-center'>Tags:  
+                {
+                    tags && tags.map(tag=><div>{tag}</div>)
+                }
+            </h1>
+            <img src={articleCover} alt="" /><br /><br />
+            <div className='max-w-5xl mx-auto'>
+                <div className='flex justify-between items-center'>
                     <div>
                     <div className="avatar">
                         <div className="w-12 rounded-full">
@@ -35,7 +40,8 @@ const ArticleDetail = () => {
                         <h1>Posted On: {postedDate}</h1>
                     </div>
                         <h1>Publisher: {publisher}</h1>
-                </div>
+                </div><br /><br />
+                <p>{detail}</p>
             </div>
             
         </div>

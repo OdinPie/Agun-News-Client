@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 
 const ArticleDetail = () => {
@@ -18,6 +18,7 @@ const ArticleDetail = () => {
         isPremium,
         postedDate,
         viewCount } = article[0];
+
         
     return (
         <div>

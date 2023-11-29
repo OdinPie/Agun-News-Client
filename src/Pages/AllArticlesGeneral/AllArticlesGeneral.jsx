@@ -55,6 +55,7 @@ const AllArticlesGeneral = () => {
             setShowArticles(res.data);
         })
     }
+    
     return (
         <div>
             <h1 className='text-4xl font-bold font-play pt-40 text-center'>All Articles</h1><br /><br />

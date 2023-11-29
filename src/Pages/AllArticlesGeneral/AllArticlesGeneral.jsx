@@ -2,7 +2,7 @@ import React from 'react';
 import useArticles from '../../Hooks/useArticles';
 import ArticleGeneral from './ArticleGeneral';
 import { useInfiniteQuery } from '@tanstack/react-query';
-
+import ArticlePremium from './ArticlePremium'
 // const getArticles = async(page= 1) =>{
 //     const res = await fetch(`http://localhost:5000/allarticles?page=${page}`);
 //     const data = await res.json();
@@ -36,7 +36,14 @@ const AllArticlesGeneral = () => {
             <h1 className='text-4xl font-bold font-play pt-40 text-center'>All Articles</h1><br /><br />
             <div className='grid grid-cols-3 gap-5'>
                 {
-                    articles && articles.map(art=><ArticleGeneral article={art}></ArticleGeneral>)
+                    articles && articles.map(art=>{
+                        if(art.isPremium==='no'){
+                            return(<ArticleGeneral article={art}></ArticleGeneral>)
+                        }
+                        else{
+                            return (<ArticlePremium article={art}></ArticlePremium>)
+                        }
+                    })
                 }
             </div>
         </div>

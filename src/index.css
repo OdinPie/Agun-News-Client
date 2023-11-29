@@ -34,3 +34,26 @@ body{
 .btnPrimary:active{
     transform: scale(2,2);
 }
+
+.btnPremium{
+    padding: 10px;
+    /* background: rgba(255, 255, 255, 0.551);
+    border: white solid 1px; */
+    background: linear-gradient(to right, transparent 50%, rgb(169, 14, 177) 50%);
+    background-position: left bottom;
+    background-size: 200% 100%;
+    border: 1px solid white;
+    transition: all 1s ease-in-out;
+
+}
+
+.btnPremium:hover{
+    /* background-size: 100% 100%; */
+    /* background: linear-gradient(to right, rgb(11, 119, 131) 50%, white 50%); */
+    background-position: right bottom;
+    border: none;
+}
+
+.btnPremium:active{
+    transform: scale(2,2);
+}

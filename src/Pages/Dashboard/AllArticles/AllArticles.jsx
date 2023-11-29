@@ -6,10 +6,10 @@ const AllArticles = () => {
     const [articles] = useArticles();
     // console.log(articles);
     return (
-        <div className=''>
+        <div className='overflow-auto'>
             <h1 className='text-4xl font-bold font-play pt-40 text-center'>All Articles</h1>
-            <div className="overflow-x-auto">
-                <table className="table sm:table-small lg:table-lg">
+            <div className="overflow-auto">
+                <table className="table table-small bg-slate-500">
                     <thead>
                     <tr className='text-white text-lg outline outline-white outline-2'>
                          

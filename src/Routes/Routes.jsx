@@ -8,6 +8,7 @@ import AddPublisher from "../Pages/Dashboard/AddPublisher/AddPublisher";
 import AddArticle from "../Pages/AddArticle/AddArticle";
 import AllArticles from "../Pages/Dashboard/AllArticles/AllArticles";
 import AllArticlesGeneral from "../Pages/AllArticlesGeneral/AllArticlesGeneral";
+import ArticleDetail from "../Pages/ArticleDetail/ArticleDetail";
 
 
 export const route = createBrowserRouter([
@@ -46,6 +47,11 @@ export const route = createBrowserRouter([
             {
                 path: '/allarticles',
                 element: <AllArticlesGeneral></AllArticlesGeneral>
+            },
+            {
+                path: '/allarticles/articledetail/:id',
+                element: <ArticleDetail></ArticleDetail>,
+                loader: ({params})=> fetch(`http://localhost:5000/articles/${params.id}`)
             }
         ]
     }

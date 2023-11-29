@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ArticleGeneral = ({article}) => {
     const { 
@@ -14,6 +15,8 @@ const ArticleGeneral = ({article}) => {
         status,
         isPremium,
         postedDate } = article;
+
+        const navigate = useNavigate();
     return (
         <div>
             <div className="card card-compact relative w-96 rounded-none bg-transparent shadow-xl hover:shadow-purple-700 outline outline-1 outline-purple-700">
@@ -24,7 +27,7 @@ const ArticleGeneral = ({article}) => {
                     <p className='underline underline-offset-8'>{publisher}</p><br />
                     <p>{detail.length > 100 ? detail.slice(0,100) : detail}....</p>
                     <div className="card-actions justify-end">
-                    <button className="btnPremium w-full">Details</button>
+                    <button onClick={()=>{navigate(`/allarticles/articledetail/${_id}`)}} className="btnPremium w-full">Details</button>
                     </div>
                 </div>
             </div>

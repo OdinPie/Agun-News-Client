@@ -21,6 +21,7 @@ const ArticleGeneral = ({article}) => {
                 <div className="card-body">
                     <h2 className='bg-purple-700 w-20 p-2 absolute top-0 right-0'>Premium</h2>
                     <h2 className="card-title">{title}</h2>
+                    <p className='underline underline-offset-8'>{publisher}</p><br />
                     <p>{detail.length > 100 ? detail.slice(0,100) : detail}....</p>
                     <div className="card-actions justify-end">
                     <button className="btnPremium w-full">Details</button>

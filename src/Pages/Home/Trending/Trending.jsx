@@ -25,7 +25,7 @@ const Trending = () => {
                 interval={6000}
             >
                 {
-                    trending && trending.map(trend=><div><Trend trend={trend}></Trend></div>)
+                    trending && trending.map(trend=><div className="w-full"><Trend trend={trend}></Trend></div>)
                 }
             </AutoplaySlider>  
             

@@ -27,6 +27,7 @@ const AddArticle = () => {
       const authorPhoto = user?.photoURL;
       const status = 'pending';
       const isPremium = 'no';
+      const viewCount = 0;
       const postedDate = getTime();
       const articleInfo = {
         title,
@@ -39,7 +40,8 @@ const AddArticle = () => {
         authorPhoto,
         status,
         isPremium,
-        postedDate
+        postedDate,
+        viewCount
       }
       // console.log(articleInfo);
 

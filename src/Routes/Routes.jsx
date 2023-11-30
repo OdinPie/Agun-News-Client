@@ -11,6 +11,7 @@ import AllArticlesGeneral from "../Pages/AllArticlesGeneral/AllArticlesGeneral";
 import ArticleDetail from "../Pages/ArticleDetail/ArticleDetail";
 import Subscription from "../Pages/Subscription/Subscription";
 import MyArticles from "../Pages/MyArticles/MyArticles";
+import PrivateRouter from "./PrivateRoute";
 
 
 export const route = createBrowserRouter([
@@ -61,7 +62,7 @@ export const route = createBrowserRouter([
             },
             {
                 path: '/myarticles',
-                element: <MyArticles></MyArticles>
+                element: <PrivateRouter><MyArticles></MyArticles></PrivateRouter>
             }
         ]
     }

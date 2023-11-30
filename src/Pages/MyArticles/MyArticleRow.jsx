@@ -20,7 +20,7 @@ const MyArticleRow = ({userarticle}) => {
 
             <td>{_id}</td>
             <td>{title}</td>
-            <td>{status}{status=='declined' && <button>Reason</button>}</td>
+            <td>{status}{status=='declined' && <button className='btn'>Reason</button>}</td>
             <td>{isPremium}</td>
             <td><button className='btn'>Details</button></td>
             <td><button className='btn'>Update</button></td>

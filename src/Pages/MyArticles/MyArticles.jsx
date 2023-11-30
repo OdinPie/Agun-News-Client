@@ -1,17 +1,19 @@
 import React, { useContext } from 'react';
 import useUserArticles from '../../Hooks/useUserArticles';
 import { AuthContext } from '../../Provider/AuthProvider';
+import MyArticleRow from './MyArticleRow';
 const MyArticles = () => {
     const {user} = useContext(AuthContext);
-    const [userarticles] = useUserArticles(user?.email);
-    
-    // TODO: serial no,article title,details button,status,isPremium,update button,delete
+    const useremail = user?.email;
+    // console.log('in user', useremail);
+    const [userarticles] = useUserArticles(useremail);
+    // console.log(userarticles);
 
     return (
         <div className='overflow-auto'>
         <h1 className='text-4xl font-bold font-play pt-40 text-center'>All Articles</h1>
         <div className="overflow-auto">
-            <table className="table table-small bg-slate-500">
+            <table className="table table-small">
                 <thead>
                 <tr className='text-white text-lg outline outline-white outline-2'>
                      
@@ -28,7 +30,7 @@ const MyArticles = () => {
                     
                 {/* articles mapping */}
                {
-                userarticles && userarticles.map()
+                userarticles && userarticles.map(art=><MyArticleRow userarticle={art}></MyArticleRow>)
                }
                 </tbody> 
                 

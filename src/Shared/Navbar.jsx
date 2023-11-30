@@ -17,7 +17,7 @@ const Navbar = () => {
                         <NavLink to='/allarticles'>All Articles</NavLink>
                         <NavLink to='/subscription'>Subscription </NavLink>
                         <NavLink>Premium Articles</NavLink>
-                        <NavLink>My Articles</NavLink>
+                        <NavLink to='/myarticles'>My Articles</NavLink>
                         <NavLink to='/addarticle'>Add Article</NavLink>
                         <NavLink to='/admin/dashboard'>Dashboard</NavLink>
                         
@@ -71,6 +71,7 @@ const Navbar = () => {
                         <li><NavLink to='/allarticles'>All Articles</NavLink></li>
                         <li><NavLink to='/subscription'>Subscription </NavLink></li>
                         <li><NavLink>Premium Articles</NavLink></li>
+                        <li><NavLink to='/myarticles'>My Articles</NavLink></li>
                         <li><NavLink to='/addarticle'>Add Article</NavLink></li>
                         <li><NavLink to='/admin/dashboard'>Dashboard</NavLink></li>  
                         </ul>

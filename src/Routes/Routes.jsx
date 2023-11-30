@@ -10,6 +10,7 @@ import AllArticles from "../Pages/Dashboard/AllArticles/AllArticles";
 import AllArticlesGeneral from "../Pages/AllArticlesGeneral/AllArticlesGeneral";
 import ArticleDetail from "../Pages/ArticleDetail/ArticleDetail";
 import Subscription from "../Pages/Subscription/Subscription";
+import MyArticles from "../Pages/MyArticles/MyArticles";
 
 
 export const route = createBrowserRouter([
@@ -57,6 +58,10 @@ export const route = createBrowserRouter([
             {
                 path: '/subscription',
                 element: <Subscription></Subscription>
+            },
+            {
+                path: '/myarticles',
+                element: <MyArticles></MyArticles>
             }
         ]
     }

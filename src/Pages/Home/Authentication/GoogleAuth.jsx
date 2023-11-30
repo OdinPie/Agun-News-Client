@@ -9,10 +9,12 @@ const GoogleAuth = () => {
         googleSignIn()
         .then(result =>{
             console.log(result.user);
+            const premiumTaken = null;
             const userInfo = {
                 email: result.user?.email,
                 displayName: result.user?.displayName,
                 photoURL: result.user?.photoURL,
+                premiumTaken: premiumTaken
             }
 
             axiosPublic.post('/users',userInfo)

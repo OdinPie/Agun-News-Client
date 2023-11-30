@@ -50,10 +50,15 @@ const AllArticlesGeneral = () => {
         const rtags = form.tags.value;
         const tags = rtags.split(' ');
         // console.log(publisher, hint, tags);
-        axiosPublic.get(`/search?hint=${hint}&tags=${tags}&publisher=${publisher}`)
+        if(publisher==null || tags==null){
+            setShowArticles(articles)
+        }   
+        else{
+            axiosPublic.get(`/search?hint=${hint}&tags=${tags}&publisher=${publisher}`)
         .then(res=>{
             setShowArticles(res.data);
         })
+        }
     }
     
     return (

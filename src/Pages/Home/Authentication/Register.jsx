@@ -15,7 +15,8 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photoURL = form.photoURL.value;
-        const info = {displayName,email,photoURL};
+        const premiumTaken = null;
+        const info = {displayName,email,photoURL,premiumTaken};
         
         //creating user in firebase
         const isValid = /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])/.test(password);

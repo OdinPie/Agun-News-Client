@@ -13,9 +13,9 @@ const Navbar = () => {
                 </div>
                 <div className="flex-none">
                     <div className='sm:hidden lg:flex items-center gap-9 mr-4'>
-                        <NavLink>Home</NavLink>
+                        <NavLink to='/'>Home</NavLink>
                         <NavLink to='/allarticles'>All Articles</NavLink>
-                        <NavLink>Subscription </NavLink>
+                        <NavLink to='/subscription'>Subscription </NavLink>
                         <NavLink>Premium Articles</NavLink>
                         <NavLink>My Articles</NavLink>
                         <NavLink to='/addarticle'>Add Article</NavLink>
@@ -67,9 +67,9 @@ const Navbar = () => {
                         </div>
                        }
     
-                        <li><NavLink>Home</NavLink></li>
+                        <li><NavLink to='/'>Home</NavLink></li>
                         <li><NavLink to='/allarticles'>All Articles</NavLink></li>
-                        <li><NavLink>Subscription </NavLink></li>
+                        <li><NavLink to='/subscription'>Subscription </NavLink></li>
                         <li><NavLink>Premium Articles</NavLink></li>
                         <li><NavLink to='/addarticle'>Add Article</NavLink></li>
                         <li><NavLink to='/admin/dashboard'>Dashboard</NavLink></li>  

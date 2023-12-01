@@ -35,24 +35,28 @@ export const route = createBrowserRouter([
             },
             {
                 path: '/admin/dashboard',
-                element: <Dashboard></Dashboard>
+                element: <Dashboard></Dashboard>,
+                children: [
+                    {
+                        path: '/admin/dashboard/addpublisher',
+                        element: <AddPublisher></AddPublisher>
+                    },
+                    {
+                        path: '/admin/dashboard/allusers',
+                        element: <AllUsers></AllUsers>
+                    },
+                    {
+                        path: '/admin/dashboard/allarticles',
+                        element: <AllArticles></AllArticles>
+                    },
+                ]
             },
-            {
-                path: '/admin/addpublisher',
-                element: <AddPublisher></AddPublisher>
-            },
-            {
-                path: '/admin/allusers',
-                element: <AllUsers></AllUsers>
-            },
+            
             {
                 path: '/addarticle',
                 element: <AddArticle></AddArticle>
             },
-            {
-                path: '/admin/allarticles',
-                element: <AllArticles></AllArticles>
-            },
+            
             {
                 path: '/allarticles',
                 element: <AllArticlesGeneral></AllArticlesGeneral>

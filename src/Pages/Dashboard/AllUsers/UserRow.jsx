@@ -42,7 +42,7 @@ const UserRow = ({user}) => {
             <td><img className='h-10' src={photoURL} alt="user" /></td>
             <td>
                 {
-                    user?.role ? 'Admin' : <button onClick={()=>{makeAdmin(_id)}} className='btn bg-transparent text-white outline outline-1 outline-red-700'>Make Admin</button>
+                    user?.role ? 'Admin' : <button onClick={()=>{makeAdmin(_id)}} className='btn bg-transparent text-white outline outline-4 outline-red-700'>Make Admin</button>
                 }
             </td>
             

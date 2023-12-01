@@ -13,6 +13,7 @@ import Subscription from "../Pages/Subscription/Subscription";
 import MyArticles from "../Pages/MyArticles/MyArticles";
 import PrivateRouter from "./PrivateRoute";
 import UpdatePage from "../Pages/MyArticles/UpdatePage/UpdatePage";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 
 
 export const route = createBrowserRouter([
@@ -39,6 +40,10 @@ export const route = createBrowserRouter([
             {
                 path: '/admin/addpublisher',
                 element: <AddPublisher></AddPublisher>
+            },
+            {
+                path: '/admin/allusers',
+                element: <AllUsers></AllUsers>
             },
             {
                 path: '/addarticle',
@@ -69,7 +74,8 @@ export const route = createBrowserRouter([
                 path: '/update/:id',
                 element: <UpdatePage></UpdatePage>,
                 loader: ({params})=>fetch(`http://localhost:5000/articles/${params.id}`)
-            }
+            },
+
         ]
     }
 ])

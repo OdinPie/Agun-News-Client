@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
+import ReasonModal from './ReasonModal';
+import { useState } from 'react';
 
 const MyArticleRow = ({userarticle}) => {
     const {
@@ -21,6 +23,20 @@ const MyArticleRow = ({userarticle}) => {
 
         const navigate = useNavigate();
         const axiosPublic = useAxiosPublic();
+        const [ismodalOpen, setisModalOpen] = useState(false);
+        const [selectedId, setselectedId] = useState(null);
+
+        const modalOpen = (id) =>{
+            setisModalOpen(true);
+            setselectedId(id);
+        }
+
+        const closeModal = () =>{
+            setisModalOpen(false);
+            setselectedId(null);
+        }
+
+
         const handleDelete = (id) =>{
             Swal.fire({
                 title: "Are you sure?",
@@ -52,13 +68,16 @@ const MyArticleRow = ({userarticle}) => {
 
             <td>{_id}</td>
             <td>{title}</td>
-            <td>{status}{status=='declined' && <button className='btn'>Reason</button>}</td>
+            <td>{status}{status=='declined' && <button onClick={()=>{modalOpen(_id)}} className='btn'>Reason</button>}</td>
             <td>{isPremium}</td>
             {/* This will not increase view Count */}
             <td><button onClick={()=>{navigate(`/allarticles/articledetail/${_id}`);}} className='btn'>Details</button></td> 
             <td><button onClick={()=>{navigate(`/update/${_id}`)}} className='btn'>Update</button></td>
             <td><button onClick={()=>{handleDelete(_id)}} className='btn'>Delete</button></td>
-            {/* declineReason */}
+            {
+              status=='declined' && <ReasonModal isOpen={ismodalOpen} reason={userarticle?.declineReason} onRequestClose={closeModal} itemId={selectedId}></ReasonModal>
+            }
+            
         </tr>
     );
 };

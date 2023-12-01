@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import ChatBotSegment from "./ChatBot/ChatBotSegment";
 import Plans from "./Plans/Plans";
 import Publisher from "./Publishers/Publisher";
 import Statistics from "./Statistics/Statistics";
@@ -12,6 +13,8 @@ const Home = () => {
             <Publisher></Publisher>
             <Statistics></Statistics>
             <Plans></Plans>
+            <Banner></Banner>
+            <ChatBotSegment></ChatBotSegment>
         </div>
     );
 };

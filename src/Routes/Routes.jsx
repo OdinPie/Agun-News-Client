@@ -12,6 +12,7 @@ import ArticleDetail from "../Pages/ArticleDetail/ArticleDetail";
 import Subscription from "../Pages/Subscription/Subscription";
 import MyArticles from "../Pages/MyArticles/MyArticles";
 import PrivateRouter from "./PrivateRoute";
+import UpdatePage from "../Pages/MyArticles/UpdatePage/UpdatePage";
 
 
 export const route = createBrowserRouter([
@@ -62,7 +63,12 @@ export const route = createBrowserRouter([
             },
             {
                 path: '/myarticles',
-                element: <PrivateRouter><MyArticles></MyArticles></PrivateRouter>
+                element: <PrivateRouter><MyArticles></MyArticles></PrivateRouter>,
+            },
+            {
+                path: '/update/:id',
+                element: <UpdatePage></UpdatePage>,
+                loader: ({params})=>fetch(`http://localhost:5000/articles/${params.id}`)
             }
         ]
     }

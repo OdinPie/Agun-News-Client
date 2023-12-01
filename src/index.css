@@ -58,3 +58,9 @@ body{
     transform: scale(2,2);
 }
 
+.btnDisabled{
+    padding: 10px;
+    background: grey;
+    border: 1px solid white;
+}
+

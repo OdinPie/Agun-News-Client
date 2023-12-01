@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const auth = getAuth(app);
 export const AuthContext = createContext();
 const AuthProvider = ({children}) => {
-    
+    const [premiumUserCheck, setpremiumUserCheck] = useState(null);
     const [users,setUsers] = useState([]);
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -75,10 +75,15 @@ const AuthProvider = ({children}) => {
                                 title: "Oops...",
                                 text: "Your subscription has ended",
                               });
+                            
+                              setpremiumUserCheck(null)
                         }
     
                         
                     })
+                }
+                else{
+                    setpremiumUserCheck('yes')
                 }
             }
     },[users,user,axiosPublic])
@@ -89,7 +94,8 @@ const AuthProvider = ({children}) => {
         loginUser,
         updateUser,
         logoutUser,
-        googleSignIn
+        googleSignIn,
+        premiumUserCheck
     }
     return (
         <AuthContext.Provider value={userInfo}>

@@ -14,12 +14,15 @@ import MyArticles from "../Pages/MyArticles/MyArticles";
 import PrivateRouter from "./PrivateRoute";
 import UpdatePage from "../Pages/MyArticles/UpdatePage/UpdatePage";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import AdminStats from "../Pages/Dashboard/AdminStats/AdminStats";
+import ErrorRoute from "./ErrorRoute";
 
 
 export const route = createBrowserRouter([
     {
         path: '/',
         element: <Layout></Layout>,
+        errorElement: <ErrorRoute></ErrorRoute>,
         children: [
             {
                 path: '/',
@@ -37,6 +40,10 @@ export const route = createBrowserRouter([
                 path: '/admin/dashboard',
                 element: <Dashboard></Dashboard>,
                 children: [
+                    {
+                        path: '/admin/dashboard',
+                        element: <AdminStats></AdminStats>
+                    },
                     {
                         path: '/admin/dashboard/addpublisher',
                         element: <AddPublisher></AddPublisher>

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import useArticles from '../../../Hooks/useArticles';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import DeclineModal from './DeclineModal';
+import Swal from 'sweetalert2';
 
 
 const ArticleRow = ({ article }) => {
@@ -72,6 +73,34 @@ const ArticleRow = ({ article }) => {
                    
                 })
         }
+
+        const handleDelete = (id) =>{
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  axiosPublic.delete(`/delete_article/${id}`)
+                  .then(res=>{
+                    console.log(res.data);
+                    if(res.data.deletedCount>1){
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Article has been deleted.",
+                            icon: "success"
+                          });
+                          refetch();
+                    }
+                  })
+                  
+                }
+              });
+        }
     return (
 
         <tr>
@@ -85,7 +114,7 @@ const ArticleRow = ({ article }) => {
             <td>{status}</td>
             <td><button onClick={handleApprove} disabled={disableButton} className='btn bg-green-300'>Approve</button></td>
             <td><button onClick={()=>{modalOpen(_id)}} disabled={disableButton} className='btn'>Decline</button></td>
-            <td><button className='btn bg-red-400'>Delete</button></td>
+            <td><button onClick={()=>{handleDelete(_id)}} className='btn bg-red-400'>Delete</button></td>
             <td>{isPremium=='yes'? 'Premium' : <button onClick={makePremium} className='btn bg-blue-200'>Make Premium</button>}</td>
             <DeclineModal isOpen={ismodalOpen} onRequestClose={closeModal} itemId={selectedId}></DeclineModal>
             

@@ -16,6 +16,7 @@ const Dashboard = () => {
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label> 
                 <ul className="menu p-4 min-h-full bg-base-200 text-base-content">
                 {/* Sidebar content here */}
+                <Link to='/admin/dashboard'><li><a>Dashboard</a></li></Link>
                 <Link to='/admin/dashboard/allusers'><li><a>All Users</a></li></Link>
                 <Link to='/admin/dashboard/allarticles'><li><a>All Articles</a></li></Link>
                 <Link to='/admin/dashboard/addpublisher'><li><a>Add Publisher</a></li></Link>

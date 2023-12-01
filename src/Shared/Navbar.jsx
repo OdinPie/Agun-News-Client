@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Navbar = () => {
-    const {user, logoutUser} = useContext(AuthContext);
+    const {user, logoutUser, premiumUserCheck} = useContext(AuthContext);
     return (
         <div>
             <div className="navbar bg-black p-5 border-b-2 border-red-700 rounded-none fixed top-0 z-20">
@@ -16,7 +16,7 @@ const Navbar = () => {
                         <NavLink to='/'>Home</NavLink>
                         <NavLink to='/allarticles'>All Articles</NavLink>
                         <NavLink to='/subscription'>Subscription </NavLink>
-                        <NavLink>Premium Articles</NavLink>
+                        {premiumUserCheck && <NavLink>Premium Articles</NavLink>}
                         <NavLink to='/myarticles'>My Articles</NavLink>
                         <NavLink to='/addarticle'>Add Article</NavLink>
                         <NavLink to='/admin/dashboard'>Dashboard</NavLink>
@@ -70,7 +70,7 @@ const Navbar = () => {
                         <li><NavLink to='/'>Home</NavLink></li>
                         <li><NavLink to='/allarticles'>All Articles</NavLink></li>
                         <li><NavLink to='/subscription'>Subscription </NavLink></li>
-                        <li><NavLink>Premium Articles</NavLink></li>
+                        {premiumUserCheck && <li><NavLink>Premium Articles</NavLink></li>}
                         <li><NavLink to='/myarticles'>My Articles</NavLink></li>
                         <li><NavLink to='/addarticle'>Add Article</NavLink></li>
                         <li><NavLink to='/admin/dashboard'>Dashboard</NavLink></li>  

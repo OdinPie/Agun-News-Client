@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
+import { useEffect } from 'react';
 
 const ArticleGeneral = ({article}) => {
     const { 
@@ -20,7 +23,15 @@ const ArticleGeneral = ({article}) => {
 
         const navigate = useNavigate();
         const [view, setView] = useState(viewCount);
+        const [disabled, setdisabled] = useState(true);
+        const {premiumUserCheck} = useContext(AuthContext);
         const axiosPublic = useAxiosPublic();
+        useEffect(()=>{
+            if(premiumUserCheck){
+                setdisabled(false);
+            }
+        },[premiumUserCheck])
+
         const handleDetail = () =>{
             var count = viewCount+1;
             setView(count);
@@ -45,7 +56,7 @@ const ArticleGeneral = ({article}) => {
                     <p className='underline underline-offset-8'>{publisher}</p><br />
                     <p>{detail.length > 100 ? detail.slice(0,100) : detail}....</p>
                     <div className="card-actions justify-end">
-                    <button onClick={handleDetail} className="btnPremium w-full">Details</button>
+                    <button disabled={disabled} onClick={handleDetail} className={disabled ? 'btnDisabled w-full' : 'btnPremium w-full'}>Details</button>
                     </div>
                 </div>
             </div>

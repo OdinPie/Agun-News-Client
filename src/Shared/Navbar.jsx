@@ -14,9 +14,10 @@ const Navbar = () => {
                 <div className="flex-none">
                     <div className='sm:hidden lg:flex items-center gap-9 mr-4'>
                         <NavLink to='/'>Home</NavLink>
+                        <NavLink to='/aboutus'>About Us</NavLink>
                         <NavLink to='/allarticles'>All Articles</NavLink>
                         <NavLink to='/subscription'>Subscription </NavLink>
-                        {premiumUserCheck && <NavLink>Premium Articles</NavLink>}
+                        {premiumUserCheck && <NavLink to='/premium_articles'>Premium Articles</NavLink>}
                         <NavLink to='/myarticles'>My Articles</NavLink>
                         <NavLink to='/addarticle'>Add Article</NavLink>
                         <NavLink to='/admin/dashboard'>Dashboard</NavLink>
@@ -68,9 +69,10 @@ const Navbar = () => {
                        }
     
                         <li><NavLink to='/'>Home</NavLink></li>
+                        <li><NavLink to='/aboutus'>About Us</NavLink></li>
                         <li><NavLink to='/allarticles'>All Articles</NavLink></li>
                         <li><NavLink to='/subscription'>Subscription </NavLink></li>
-                        {premiumUserCheck && <li><NavLink>Premium Articles</NavLink></li>}
+                        {premiumUserCheck && <li><NavLink to='/premium_articles'>Premium Articles</NavLink></li>}
                         <li><NavLink to='/myarticles'>My Articles</NavLink></li>
                         <li><NavLink to='/addarticle'>Add Article</NavLink></li>
                         <li><NavLink to='/admin/dashboard'>Dashboard</NavLink></li>  

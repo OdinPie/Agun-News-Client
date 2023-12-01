@@ -4,6 +4,7 @@ import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import 'react-awesome-slider/dist/styles.css';
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Trend from "./Trend";
+import { Typewriter } from 'react-simple-typewriter'
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -18,7 +19,21 @@ const Trending = () => {
     },[axiosPublic])
     return (
         <div>
-            <h1 className='text-4xl font-bold font-play pt-40 text-center'>Trending Articles</h1><br /><br />
+            <h1 className='text-5xl pt-36 pb-10 text-center text-white'>
+        {' '}
+        <span style={{ color: '#fff', fontWeight: 'bold' }}>
+          {/* Style will be inherited from the parent element */}
+          <Typewriter
+            words={['Check Out Trending Articles']}
+            loop={30}
+            cursor
+            cursorStyle='| '
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </span>
+      </h1>
             <AutoplaySlider
                 play={true}
                 cancelOnInteraction={false}

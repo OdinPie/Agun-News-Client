@@ -16,6 +16,8 @@ import UpdatePage from "../Pages/MyArticles/UpdatePage/UpdatePage";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AdminStats from "../Pages/Dashboard/AdminStats/AdminStats";
 import ErrorRoute from "./ErrorRoute";
+import PremiumArticlesPage from "../Pages/PremiumArticles/PremiumArticlesPage";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 
 
 export const route = createBrowserRouter([
@@ -35,6 +37,10 @@ export const route = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/aboutus',
+                element: <AboutUs></AboutUs>
             },
             {
                 path: '/admin/dashboard',
@@ -86,6 +92,11 @@ export const route = createBrowserRouter([
                 element: <UpdatePage></UpdatePage>,
                 loader: ({params})=>fetch(`http://localhost:5000/articles/${params.id}`)
             },
+            {
+                path: '/premium_articles',
+                element: <PremiumArticlesPage></PremiumArticlesPage>
+            },
+            
 
         ]
     }

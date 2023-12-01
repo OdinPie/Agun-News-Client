@@ -1,12 +1,26 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Typewriter } from 'react-simple-typewriter';
 
 const Plans = () => {
     const navigate = useNavigate();
     return (
         <div>
-            <h1 className='text-4xl font-bold font-play pt-40 text-center'>Check out our Premium Plans</h1><br /><br />
-            <div className='flex justify-center gap-28'>
+<h1 className='text-5xl pt-36 pb-10 text-center text-white'>
+        {' '}
+        <span style={{ color: '#fff', fontWeight: 'bold' }}>
+          {/* Style will be inherited from the parent element */}
+          <Typewriter
+            words={['Check Out Our Premium Plans']}
+            loop={30}
+            cursor
+            cursorStyle='| '
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </span>
+      </h1>            <div className='flex justify-center gap-28'>
             <div className="card outline outline-2 outline-indigo-500 py-5 px-12">
                 <div className='flex justify-between gap-10'>
                 <div>

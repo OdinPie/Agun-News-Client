@@ -1,8 +1,23 @@
-# React + Vite
+# Agun News Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Live site :  https://agun-news.web.app/
 
-Currently, two official plugins are available:
+This project provides a wide range of functionalities
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Users can log in or sign up to read details
+* Users can add articles by logging in
+* Users can subscribe to access premium articles (implemented with Stripe)
+* Only Admin can access the Dashboard
+    * Admin Email : admin@admin.com
+    * Admin Pass : 1234A)
+* Admin can 
+    * see the statistics 
+    * Add publishers
+    * See all users and Make other users admin
+    * Approve , decline and delete the articles
+    * For decline, admin has to state a reason
+* Users can see all articles they published and if article is declined, they can see the reason
+* The button to see details of premium articles remain disabled until the user takes subscription. 
+* A route named Premium articles appear after taking subscription
+* A message pops up after subscription has ended
+* backend uses Express JS and routes secured with JWT

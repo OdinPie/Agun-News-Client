@@ -30,7 +30,7 @@ const [,refetch] = useArticles();
             declineReason: reason
         }
         console.log(console.log(updated));
-        axios.patch(`http://localhost:5000/decline/${itemId}`, updated)
+        axios.patch(`https://agun-news-server.vercel.app/decline/${itemId}`, updated)
         .then(res=>
             {   console.log(res);
                 if(res.data.modifiedCount>0){

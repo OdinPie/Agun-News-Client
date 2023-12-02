@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import useAdmin from '../../Hooks/useAdmin';
 
 const Dashboard = () => {
+    const [isAdmin] = useAdmin();
     return (
         <div>
             <h1 className='text-4xl text-center font-bold pt-32'>Admin Dashboard</h1>
-            <div className="drawer drawer-open -mt-16 ">
+            {isAdmin && <div className="drawer drawer-open -mt-16 ">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
                 {/* Page content here */}
@@ -24,7 +26,7 @@ const Dashboard = () => {
                 </ul>
             
             </div>
-            </div>
+            </div>}
         </div>
     );
 };

@@ -18,6 +18,8 @@ import AdminStats from "../Pages/Dashboard/AdminStats/AdminStats";
 import ErrorRoute from "./ErrorRoute";
 import PremiumArticlesPage from "../Pages/PremiumArticles/PremiumArticlesPage";
 import AboutUs from "../Pages/AboutUs/AboutUs";
+import Profile from "../Pages/Profile/Profile";
+import UpdateUser from "../Pages/Profile/UpdateUser";
 
 
 export const route = createBrowserRouter([
@@ -67,7 +69,7 @@ export const route = createBrowserRouter([
             
             {
                 path: '/addarticle',
-                element: <AddArticle></AddArticle>
+                element: <PrivateRouter><AddArticle></AddArticle></PrivateRouter>
             },
             
             {
@@ -76,8 +78,8 @@ export const route = createBrowserRouter([
             },
             {
                 path: '/allarticles/articledetail/:id',
-                element: <ArticleDetail></ArticleDetail>,
-                loader: ({params})=> fetch(`http://localhost:5000/articles/${params.id}`)
+                element: <PrivateRouter><ArticleDetail></ArticleDetail></PrivateRouter>,
+                loader: ({params})=> fetch(`https://agun-news-server.vercel.app/articles/${params.id}`)
             },
             {
                 path: '/subscription',
@@ -90,12 +92,20 @@ export const route = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <UpdatePage></UpdatePage>,
-                loader: ({params})=>fetch(`http://localhost:5000/articles/${params.id}`)
+                loader: ({params})=>fetch(`https://agun-news-server.vercel.app/articles/${params.id}`)
             },
             {
                 path: '/premium_articles',
-                element: <PremiumArticlesPage></PremiumArticlesPage>
+                element: <PrivateRouter><PremiumArticlesPage></PremiumArticlesPage></PrivateRouter>
             },
+            {
+                path: '/userprofile',
+                element: <Profile></Profile>
+            },
+            {
+                path: '/updateuser',
+                element: <UpdateUser></UpdateUser>
+            }
             
 
         ]

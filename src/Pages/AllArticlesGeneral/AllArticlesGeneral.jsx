@@ -9,31 +9,6 @@ import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import { tagOptions } from '../AddArticle/tagOptions';
 import makeAnimated from 'react-select/animated';
 const animatedComponents = makeAnimated();
-// const getArticles = async(page= 1) =>{
-//     const res = await fetch(`http://localhost:5000/allarticles?page=${page}`);
-//     const data = await res.json();
-//     const nextPage = page+1;
-//     // console.log(...data, nextPage);
-//     return {...data, nextPage}
-//     // return {...data, prevOffset:pageParam, articlesCount}
-// }
-
-
-//     const {data, fetchNextPage, hasNextPage, isFetchingNextPage, nextPage} = useInfiniteQuery({
-//         queryKey:["allarticles"],
-//         queryFn: getArticles,
-//         getNextPageParam: nextPage,
-//     })
-//     console.log(data.pages);
-//     return(
-//        <div>
-//         {/* {
-//             data.pages.map((page)=><ArticleGeneral></ArticleGeneral>)
-//         } */}
-//        </div>
-
-//     )
-
 
    
 const AllArticlesGeneral = () => {
@@ -42,6 +17,7 @@ const AllArticlesGeneral = () => {
    const publishers = usePublishers();
     const axiosPublic = useAxiosPublic();
     const [showArticles, setShowArticles] = useState(articles);
+    const [loading, setloading] = useState(true);
     const handleSubmit = e =>{
         e.preventDefault();
         const form = e.target;
@@ -50,16 +26,18 @@ const AllArticlesGeneral = () => {
         const rtags = form.tags.value;
         const tags = rtags.split(' ');
         // console.log(publisher, hint, tags);
-        if(publisher==null || tags==null){
-            setShowArticles(articles)
-        }   
-        else{
+        // if(publisher==null || tags==null){
+        //     setShowArticles(articles)
+        // }   
+        // else{
             axiosPublic.get(`/search?hint=${hint}&tags=${tags}&publisher=${publisher}`)
         .then(res=>{
+            setloading(false);
             setShowArticles(res.data);
         })
-        }
+        // }
     }
+    console.log(showArticles);
     
     return (
         <div>
@@ -105,6 +83,12 @@ const AllArticlesGeneral = () => {
                         }
                         
                     })
+                }
+                {
+                    loading && <div>
+                        <h1>Loading..........</h1>
+                        <p>Please click on another route in the navbar then click 'All Articles' again :)</p>
+                    </div>
                 }
             </div>
         </div>

@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import useAdmin from '../Hooks/useAdmin';
 
 const Navbar = () => {
     const {user, logoutUser, premiumUserCheck} = useContext(AuthContext);
+    const [isAdmin] = useAdmin();
     return (
         <div>
             <div className="navbar bg-black p-5 border-b-2 border-red-700 rounded-none fixed top-0 z-20">
@@ -20,9 +22,9 @@ const Navbar = () => {
                         {premiumUserCheck && <NavLink to='/premium_articles'>Premium Articles</NavLink>}
                         <NavLink to='/myarticles'>My Articles</NavLink>
                         <NavLink to='/addarticle'>Add Article</NavLink>
-                        <NavLink to='/admin/dashboard'>Dashboard</NavLink>
+                        {isAdmin && <NavLink to='/admin/dashboard'>Dashboard</NavLink>}
                         
-                       {user ? <div className='flex items-center gap-2'> <Link>
+                       {user ? <div className='flex items-center gap-2'> <Link to='/userprofile'>
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
                         <img alt="profile" src={user.photoURL} />
@@ -52,7 +54,7 @@ const Navbar = () => {
                         <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
                         <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content gap-2">
                         {/* Sidebar content here */}
-                        {user ? <div className='flex items-center justify-between'> <Link>
+                        {user ? <div className='flex items-center justify-between'> <Link to='/userprofile'>
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
                         <img alt="profile" src={user.photoURL} />
@@ -75,7 +77,7 @@ const Navbar = () => {
                         {premiumUserCheck && <li><NavLink to='/premium_articles'>Premium Articles</NavLink></li>}
                         <li><NavLink to='/myarticles'>My Articles</NavLink></li>
                         <li><NavLink to='/addarticle'>Add Article</NavLink></li>
-                        <li><NavLink to='/admin/dashboard'>Dashboard</NavLink></li>  
+                        {isAdmin && <li><NavLink to='/admin/dashboard'>Dashboard</NavLink></li> } 
                         </ul>
                     </div>
                     </div>

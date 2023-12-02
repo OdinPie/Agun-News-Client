@@ -7,6 +7,7 @@ This project provides a wide range of functionalities
 * Users can log in or sign up to read details
 * Users can add articles by logging in
 * Users can subscribe to access premium articles (implemented with Stripe)
+* Articles are only published after Admin has approved them
 * Only Admin can access the Dashboard
     * Admin Email : admin@admin.com
     * Admin Pass : 1234A)
